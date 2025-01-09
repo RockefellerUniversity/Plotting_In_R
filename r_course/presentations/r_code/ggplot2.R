@@ -1079,7 +1079,7 @@ myupset <- upset(mutations)
 class(myupset)
 
 
-## -----------------------------------------------------------------------------
+## ----fig.height=4, fig.width=9------------------------------------------------
 library(Seurat)
 data("pbmc_small")
 DimPlot(object = pbmc_small)
@@ -1159,7 +1159,7 @@ pcPlot$mapping
 pcPlot$layers
 
 
-## ----echo=FALSE, eval=FALSE,fig.height=4, fig.width=9-------------------------
+## ----echo=FALSE, eval=FALSE,fig.height=6, fig.width=12------------------------
 # 
 # to_plot <- prcomp(assay(toPlot))$rotation-(prcomp(assay(toPlot))$rotation/matrix(rnorm(36), 6, 6)/100)
 # 
@@ -1183,16 +1183,16 @@ pcPlot$layers
 # 
 
 
-## ----fig.height=4, fig.width=9------------------------------------------------
+## ----fig.height=6, fig.width=12-----------------------------------------------
 
 ggplotly(pcPlot)
 
 
-## ----fig.height=4, fig.width=9------------------------------------------------
+## ----fig.height=6, fig.width=12-----------------------------------------------
 
 ggplotly(pcPlot + geom_point(aes(label = Sample)))
 
 
-## ----fig.height=4, fig.width=9------------------------------------------------
+## ----fig.height=6, fig.width=12-----------------------------------------------
 ggplotly(pcPlot + geom_point(aes(text = Sample )), source = "select", tooltip = c("Sample"))
 
