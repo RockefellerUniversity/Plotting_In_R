@@ -2090,7 +2090,7 @@ Lets look at some examples. We will look at the popular package: Seurat.
 
 Seurat is one of the most popular packages for analyzing scRNAseq data. Often we look at the dimension reduction (tSNE or UMAP typically).
 
-```{R}
+```{R,fig.height=4, fig.width=9}
 library(Seurat)
 data("pbmc_small")
 DimPlot(object = pbmc_small)
@@ -2220,7 +2220,7 @@ pcPlot$layers
 ```
 
 
-```{r, echo=FALSE, eval=FALSE,fig.height=4, fig.width=9}
+```{r, echo=FALSE, eval=FALSE,fig.height=6, fig.width=12}
 
 to_plot <- prcomp(assay(toPlot))$rotation-(prcomp(assay(toPlot))$rotation/matrix(rnorm(36), 6, 6)/100)
 
@@ -2249,7 +2249,7 @@ save(pcPlot, file = "../data/pcPlot.RData")
 
 The aesthetic mappings are naturally inherited as labels. If we want to add custom labels we can specify it in our plot. 
 
-```{r,fig.height=4, fig.width=9}
+```{r,fig.height=6, fig.width=12}
 
 ggplotly(pcPlot)
 ```
@@ -2259,7 +2259,7 @@ ggplotly(pcPlot)
 
 As the aesthetic mappings are naturally inherited as labels,we can just add an additional aesthetic. If we want to add custom labels we can specify it in our plot. 
 
-```{r,fig.height=4, fig.width=9}
+```{r,fig.height=6, fig.width=12}
 
 ggplotly(pcPlot + geom_point(aes(label = Sample)))
 ```
@@ -2269,7 +2269,7 @@ ggplotly(pcPlot + geom_point(aes(label = Sample)))
 
 If we want full control over the labeling we can instead use the ggplotly function to take care of this for us by specifying when/what/where labels are shown. 
 
-```{r,fig.height=4, fig.width=9}
+```{r,fig.height=6, fig.width=12}
 ggplotly(pcPlot + geom_point(aes(text = Sample )), source = "select", tooltip = c("Sample"))
 ```
 
